@@ -13,7 +13,7 @@ var scores, roundScores, activePlayer;
 
 scores = [0,0];
 roundScores = 0;
-activePlayer = 1;
+activePlayer = 0;
 
 document.querySelector('.dice').style.display = 'none';
 
@@ -31,6 +31,14 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     diceDOM.style.display = 'block';
 
     diceDOM.src = 'dice-' + dice + '.png';  
+
+    if(dice !== 1) {
+        roundScores += dice;
+        document.querySelector('#current-' + activePlayer).textContent = roundScores;
+    } else {
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+        roundScores = 0;
+    }
 
 });
 
