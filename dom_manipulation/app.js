@@ -26,40 +26,50 @@ document.getElementById('current-1').textContent = '0';
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
     
-    var dice = Math.floor(Math.random() * 6) + 1;
+    if(gamePlaying) {
+        var dice = Math.floor(Math.random() * 6) + 1;
 
-    var diceDOM = document.querySelector('.dice');
+        var diceDOM = document.querySelector('.dice');
 
-    diceDOM.style.display = 'block';
+        diceDOM.style.display = 'block';
 
-    diceDOM.src = 'dice-' + dice + '.png';  
+        diceDOM.src = 'dice-' + dice + '.png';  
 
-    if(dice !== 1) {
-        roundScores += dice;
-        document.querySelector('#current-' + activePlayer).textContent = roundScores;
-    } else {
-        nextPlayer();
-    }
+        if(dice !== 1) {
+            roundScores += dice;
+            document.querySelector('#current-' + activePlayer).textContent = roundScores;
+        } else {
+            nextPlayer();
+        }
+
+    }   
 
 });
 
 document.querySelector('.btn-hold').addEventListener('click', function() {
-    //add what will happen - add current score to globalscore and update to UI
-    scores[activePlayer] += roundScores;
-    //check if player won the game
-   document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-    if(scores[activePlayer] >= 20) {
-        document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
-        document.querySelector('.dice').style.display = 'none';
-        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-    } else {
-        nextPlayer();
+    if(gamePlaying) {
+        //add what will happen - add current score to globalscore and update to UI
+        scores[activePlayer] += roundScores;
+        //check if player won the game
+    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+
+        if(scores[activePlayer] >= 20) {
+            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+            document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+            gamePlaying = false;
+        } else {
+            nextPlayer();
+        }
     }
+    
+});
 
-   
 
+document.querySelector('.btn-new').addEventListener('click', function() {
+    init();
 });
 
 function nextPlayer() {
