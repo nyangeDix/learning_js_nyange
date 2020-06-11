@@ -36,13 +36,33 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         roundScores += dice;
         document.querySelector('#current-' + activePlayer).textContent = roundScores;
     } else {
-        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-        roundScores = 0;
+        nextPlayer();
     }
 
 });
 
+document.querySelector('.btn-hold').addEventListener('click', function() {
+    //add what will happen - add current score to globalscore and update to UI
+    scores[activePlayer] += roundScores;
+    //check if player won the game
+   document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
+   nextPlayer();
+
+});
+
+function nextPlayer() {
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+        roundScores = 0;
+
+        document.getElementById('current-0').textContent = '0';
+        document.getElementById('current-1').textContent = '0';
+
+        document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+
+        document.querySelector('.dice').style.display = 'none';
+} 
 //console.log(dice);
 
 //document.querySelector('#current-' + activePlayer).textContent = dice;
