@@ -4,16 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Abril Fatface', cursive;
+        }
+
+        .container-todo {
+            background-color: aliceblue;
+            padding: 20px;
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            position: relative;
+            top: 20vh;
+        }
+
+        .item-todo {
+            padding: 10px;
+        }
+
+        .input h1 {
+            padding-bottom: 10px;
+        }
+
+        .btn-add {
+            padding: 11px;
+            cursor: pointer;
+        }
+
+        ul li {
+            text-decoration: none;
+            list-style: none;
+            text-align: left;
+        }
+
+    </style>
 </head>
-<body>
+<body class="body">
     <div class="container-todo">
         <div class="input">
+            <h1>TO DO LIST</h1>
             <input type="text" placeholder="Enter what you want to do"
             name="" id="item-todo" class="item-todo">
             <button class="btn-add">Add item</button>
         </div>
         <div class="list-all">
-            <ul><li class="item"></li></ul>
+            <ul id="list-all-items"><li class="item"></li></ul>
         </div>
     </div>
     <script src="main.js"></script>
