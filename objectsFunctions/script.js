@@ -45,3 +45,21 @@ console.log(volvo.carName);
 console.log(volvo.carType);
 console.log(volvo.carColor);
 console.log(volvo.coverage());
+
+
+var personProto = {
+    calculateAge : function() {
+        console.log(2020 -this.yearOfBirth)
+    }
+};
+
+var newJohn = Object.create(personProto);
+newJohn.name = 'Johnie';
+newJohn.job = 'Soldier';
+newJohn.yearOfBirth = 1996;
+
+var newJane = Object.create(personProto, {
+    name : {value: 'Jane'},
+    job : {value : 'teacher'},
+    yearOfBirth : {value : 1996}
+});
