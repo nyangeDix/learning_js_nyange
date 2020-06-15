@@ -63,3 +63,21 @@ var newJane = Object.create(personProto, {
     job : {value : 'teacher'},
     yearOfBirth : {value : 1996}
 });
+
+//primitives vs numbers
+var a = 23;
+var b = a;
+a = 46;
+
+console.log(a);
+console.log(b);
+
+var obj1 = {
+    name : 'Dixon',
+    age : 24
+}
+
+var obj2 = obj1;
+obj1.age = 40;
+console.log(obj1.age);
+console.log(obj2.age);
