@@ -106,3 +106,25 @@ function arrayCalc(arr, fn) {
 function calcAge(el) {
     return 2020 - el;
 }
+
+var ages = arrayCalc(years, calcAge(1995));
+console.log(ages);
+
+function interviewQuestion(job) {
+    if(job === 'designer') {
+        return function(name) {
+            console.log(name + 'can you please teach me UI & UX design');
+        }
+    } else if (job === 'teacher') {
+        return function(name) {
+            console.log('What subject do yo teach, ' + name);
+        }
+    } else {
+        return function(name) {
+            console.log('Hello' + name + ' ho are you'); 
+        }
+    }
+}
+
+var currentTeacher = interviewQuestion('teacher');
+console.log(currentTeacher('Dixon'));
