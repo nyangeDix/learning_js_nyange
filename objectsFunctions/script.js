@@ -81,3 +81,28 @@ var obj2 = obj1;
 obj1.age = 40;
 console.log(obj1.age);
 console.log(obj2.age);
+
+var phone = function(brand, color, make) {
+    this.brand = brand;
+    this.color = color;
+    this.make = make;
+}
+
+var nokia = new phone('Nokia', 'Black', '1178');
+console.log(nokia.brand);
+console.log(nokia.color);
+console.log(nokia.make);
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+    var arrRes = []
+    for(var i; i < arrRes.length; i++) {
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calcAge(el) {
+    return 2020 - el;
+}
