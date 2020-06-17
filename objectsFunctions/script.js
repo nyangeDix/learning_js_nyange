@@ -107,8 +107,15 @@ function calNewAge(el) {
     return 2020 - el;
 }
 
+function isFullAge(el) {
+    return el >= 18 ? 'Allowed to Vote' : 'Not allowed to Vote';
+}
+
 var ages = newArray(years, calNewAge);
 console.log(ages);
+
+var checkAgeStatus = newArray(ages, isFullAge);
+console.log(checkAgeStatus);
 
 function interviewQuestion(job) {
     if(job === 'designer') {
@@ -128,3 +135,12 @@ function interviewQuestion(job) {
 
 var currentTeacher = interviewQuestion('teacher');
 console.log(currentTeacher('Dixon')); 
+
+function getName(firstName) {
+    return(firstName, function(lastname) {
+        console.log(firstName + ' ' + lastname);
+    });
+};
+
+var fullName = getName('Dickson');
+console.log(fullName('Nyange'));
