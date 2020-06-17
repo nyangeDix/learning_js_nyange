@@ -144,3 +144,30 @@ function getName(firstName) {
 
 var fullName = getName('Dickson');
 console.log(fullName('Nyange'));
+
+function game() {
+    var score = Math.random() * 10;
+    console.log(score);
+}
+
+game();
+
+(
+    function () {
+        var score = Math.random() * 10;
+        console.log("New score: " + score);
+})();
+
+//Closures
+function checkDriving(nameInput) {
+    var currentYear = 2020;
+    var canDriveStatus = 'Allowed to Drive';
+    var cannotDriveStatus = 'Not allowed to Drive';
+    console.log(nameInput);
+    return function getStatus(yob) {
+        var calAge = currentYear - yob;
+        console.log(calAge >= 18 ? canDriveStatus : cannotDriveStatus);
+    }
+}
+
+checkDriving('Dickson')(1996);
