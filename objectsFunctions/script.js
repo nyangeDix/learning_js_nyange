@@ -95,19 +95,19 @@ console.log(nokia.make);
 
 var years = [1990, 1965, 1937, 2005, 1998];
 
-function arrayCalc(arr, fn) {
-    var arrRes = []
-    for(var i; i < arrRes.length; i++) {
+function newArray(arr, fn) {
+    arrRes = [];
+    for(var i = 0; i < arr.length; i++) {
         arrRes.push(fn(arr[i]));
     }
     return arrRes;
 }
 
-function calcAge(el) {
+function calNewAge(el) {
     return 2020 - el;
 }
 
-var ages = arrayCalc(years, calcAge(1995));
+var ages = newArray(years, calNewAge);
 console.log(ages);
 
 function interviewQuestion(job) {
@@ -127,4 +127,4 @@ function interviewQuestion(job) {
 }
 
 var currentTeacher = interviewQuestion('teacher');
-console.log(currentTeacher('Dixon'));
+console.log(currentTeacher('Dixon')); 
