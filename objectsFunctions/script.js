@@ -170,4 +170,19 @@ function checkDriving(nameInput) {
     }
 }
 
-checkDriving('Dickson')(1996);
+checkDriving('Dixon')(1996);
+
+function interviewingProcess(name) {
+    var newName = name;
+    return function checkJob(job) {
+        if(job === 'designer') {
+            console.log(newName + ' can you please explain what UI and UX design is?');
+        } else if(job === 'teacher') {
+            console.log(newName + ' what subject do you teach in school');
+        } else {
+            console.log(newName + ' what do you do buddy?')
+        }
+    }
+}
+
+interviewingProcess('Stephanie')('Doctor');
