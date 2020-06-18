@@ -186,3 +186,37 @@ function interviewingProcess(name) {
 }
 
 interviewingProcess('Stephanie')('Doctor');
+
+//Bind calls and apply
+var john = {
+    name : 'Dixon',
+    age : 26,
+    job : 'Teacher',
+    presentation : function(style, timeOfDay) {
+        if(style === 'formal') {
+            console.log(
+                'Good ' + timeOfDay + ', Ladies and Gentlemen! I\'m' + this.name + ', I\'m' + this.age + ' Years Old' + this.job + ' have a nice ' + timeOfDay);
+        } else if(style = 'friendly') {
+            console.log('Hey what\'s up ' + this.name + ', I\'m a ' + this.age + ' years old teacher, have a nice' + timeOfDay);
+        }
+    }
+};
+
+var emily = {
+    name : 'Emily',
+    age : 35,
+    job : 'designer'
+};
+
+john.presentation('formal', 'morning');
+
+john.presentation.call(emily, 'friendly', 'afternoon');
+
+var johnFriendly = john.presentation.bind(john, 'friendly');
+
+johnFriendly('morning');
+johnFriendly('Night');
+
+var emilyTeacher = john.presentation.bind(emily, 'teacher');
+emilyTeacher('Night');
+emilyTeacher('Afternoon');
