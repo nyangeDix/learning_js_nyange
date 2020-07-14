@@ -57,13 +57,15 @@ console.log('Let\'s print the second statement');
 
 var friends = ['Dixon', 'XCode', 'Shadow Brokers', 'Pennywise'];
 
-function Person (name) {
-    this.name = name;
+function Persons (fName) {
+    this.fName = fName;
 }
 
-Person.prototype.myfriends = (friends => {
-    var arr = friends.map(el => `${this.name} is friends with ${el}`);
+Persons.prototype.myfriends = (friends => {
+    var arr = friends.map(el => `${this.fName} is friends with ${el}`);
     console.log(arr);
 });
 
-new Person('Mike').myfriends(friends);
+var mike = new Persons('Mike');
+
+mike.myfriends(friends);
