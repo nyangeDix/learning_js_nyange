@@ -110,3 +110,16 @@ var crAges = [17, 9, 10, 21, 14];
 
 console.log(crAges.findIndex(cur => cur >= 18));
 console.log(crAges.find(cur => cur >= 18));
+
+function addFourAges (a, b, c, d) {
+    return a + b + c + d;
+}
+
+var sum = addFourAges(...ages);
+console.log(sum);
+
+//Spread operators
+let family1 = ['Dixon', 'Flora', 'Sanderson', 'Scaver'];
+let family2 = ['Felix', 'Grace'];
+let newFamily = [...family1, 'Felix Jrn', 'Grace Jrn', ...family2];
+console.log(newFamily);
