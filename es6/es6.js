@@ -94,6 +94,19 @@ const [newage, ageLefttoRetire] = calAgeRetirement(1996);
 console.log(newage);
 console.log(ageLefttoRetire);
 
-const boxes = document.querySelector('.box');
+// const boxes1 = document.querySelector('.box');
 
-Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'yellow');
+// Array.from(boxes1).forEach(cur => cur.style.backgroundColor = 'yellow');
+
+// for(const cur of boxes1) {
+//     if(cur.className === 'blue') {
+//         continue;
+//     }
+
+//     cur.textContent = 'I changed to blue';
+// }
+
+var crAges = [17, 9, 10, 21, 14];
+
+console.log(crAges.findIndex(cur => cur >= 18));
+console.log(crAges.find(cur => cur >= 18));
