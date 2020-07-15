@@ -38,20 +38,20 @@ let newAges = yearofBirth.map(el => 2020 - el);
 console.log('New ages.....')
 console.log(newAges);
 
-const box1 = {
-    color : 'purple',
-    position : 1,
-    clickMe : function() {
+// const box1 = {
+//     color : 'purple',
+//     position : 1,
+//     clickMe : function() {
 
-        document.querySelector('.btn').addEventListener('click', () => {
-            var str = `This is box number ${this.position} of ${this.color}`;
-            alert(str);
-        });
+//         document.querySelector('.btn').addEventListener('click', () => {
+//             var str = `This is box number ${this.position} of ${this.color}`;
+//             alert(str);
+//         });
 
-    }
-}
+//     }
+// }
 
-box1.clickMe();
+// box1.clickMe();
 
 console.log('Let\'s print the second statement');
 
@@ -67,5 +67,33 @@ Persons.prototype.myfriends = (friends => {
 });
 
 var mike = new Persons('Mike');
-
 mike.myfriends(friends);
+
+//ARRAYS;
+const [name, year] = ['John', 26];
+
+console.log(name);
+console.log(year);
+
+const obj = {
+    firstname: 'Hussein',
+    lastname: 'Mohammed'
+};
+
+const { firstname, lastname } = obj
+
+console.log(firstname);
+console.log(lastname);
+
+function calAgeRetirement(year) {
+    const age = new Date().getFullYear() - year;
+    return [age, 65 - age];
+}
+
+const [newage, ageLefttoRetire] = calAgeRetirement(1996);
+console.log(newage);
+console.log(ageLefttoRetire);
+
+const boxes = document.querySelector('.box');
+
+Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'yellow');
