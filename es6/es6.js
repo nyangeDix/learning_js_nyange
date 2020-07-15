@@ -123,3 +123,9 @@ let family1 = ['Dixon', 'Flora', 'Sanderson', 'Scaver'];
 let family2 = ['Felix', 'Grace'];
 let newFamily = [...family1, 'Felix Jrn', 'Grace Jrn', ...family2];
 console.log(newFamily);
+
+function isFullYears(...years) {
+    years.forEach(cr => console.log(2020 - cr) >= 18);
+}
+
+isFullYears(1994, 1997, 2000);
