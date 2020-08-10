@@ -129,3 +129,110 @@ function isFullYears(...years) {
 }
 
 isFullYears(1994, 1997, 2000);
+
+
+function smithPerson (firstname, yearofBirth, lastname = 'Smith', nationality = 'Kenyan') {
+    this.firstname = firstname;
+    this.yearofBirth  = yearofBirth;
+    this.lastname = lastname;
+    this.nationality;
+}
+
+let chris = new smithPerson('Chris', 1998);
+
+
+let map = new Map();
+
+//set 
+map.set('1', 'Str1');
+//map.set(1,'Num1');
+map.set(true, 'bool1');
+
+//get
+console.log(map.get('1'));//returns Str1
+console.log(map.get(true));
+
+console.log(map.has(1) ? 'The map has a value: num1' : map.set(1, 'Num1'));
+console.log(map.get(1)); //returns num1
+
+console.log(map.size);
+
+let john = {
+    name : 'Johnson'
+}
+
+let hosVisits = new Map();
+
+hosVisits.set(john, 23);
+
+console.log(`${john.name} has taken ${hosVisits.get(john)} visits to Thika level five hospital`);
+
+//Looping through a Map
+let recipeMap = ([
+    ['cucumber', 23],
+    ['tomatoes', 34],
+    ['onions', 90]
+]);
+
+for (let vegies of recipeMap.keys()) {
+    console.log(vegies);
+}
+
+for(let vegNumbers of recipeMap.values()) {
+    console.log(vegNumbers);
+}
+
+
+class Person34 {
+
+    constructor(name, yearofBirth, job) {
+        this.name = name;
+        this.yearofBirth = yearofBirth;
+        this.job = job;
+    }
+
+    calculateAge() {
+        const cYear = new Date().getFullYear();
+        const num = cYear - 1996;
+        console.log(num);
+    }
+
+    sayHello() {
+        console.log(`${this.name} say hello!`);
+    }
+
+    // static newGreetings() {
+    //     console.log('Hello there');
+    // }
+}
+
+class Athlete6 extends Person34 {
+    constructor(name, yearofBirth, job, olympicGames, medals) {
+        super(name, yearofBirth, job);
+        this.olympicGames = olympicGames;
+        this.medals = medals;
+    }
+
+    wonMedals() {
+        this.medals++;
+        console.log(this.medals);
+    }
+
+    olyGames() {
+        if(this.olympicGames >= 2) {
+            console.log(`${this.name} is an experienced ${this.job}`);
+        } else {
+            console.log(`${this.name} is going back to the academy for more training`);
+        }
+    }
+}
+
+const Husein = new Person34('John', 1996, 'Software Engineer');
+Husein.sayHello();
+Husein.calculateAge();
+Husein.newGreetings;
+
+HuseinAthelete = new Athlete6('Husein Mohammed', 1997, 'Athelete', 4, 10);
+HuseinAthelete.wonMedals();
+HuseinAthelete.calculateAge();
+HuseinAthelete.olyGames(1);
